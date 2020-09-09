@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext } from "react";
+import "./App.css";
+import { CharactersList } from "./CharactersList";
 
-function App() {
+let myCache = {};
+const addToCache = ({ id, value }) => (myCache[id] = value);
+
+export const CacheContext = createContext([myCache, addToCache]);
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CacheContext.Provider value={[myCache, addToCache]}>
+        <CharactersList />
+      </CacheContext.Provider>
     </div>
   );
 }
-
-export default App;
