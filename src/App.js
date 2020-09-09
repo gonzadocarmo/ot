@@ -9,10 +9,8 @@ export const CacheContext = createContext([myCache, addToCache]);
 
 export default function App() {
   return (
-    <div className="App">
-      <CacheContext.Provider value={[myCache, addToCache]}>
-        <CharactersList />
-      </CacheContext.Provider>
-    </div>
+    <CacheContext.Provider value={[myCache, addToCache]}>
+      <CharactersList />
+    </CacheContext.Provider>
   );
 }

@@ -1,27 +1,74 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+body {
+  background-color: black;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  margin: 0 auto;
+  width: 90%;
 }
 
+@media (min-width: 1100px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    margin: 0 auto;
+    width: 85%;
+  }
+}
+div.grid {
+  border-radius: 10px;
+}
+
+.image {
+  padding: 0;
+}
 .grid div {
-  padding: 1rem;
+  padding: 1.25rem;
 }
 
 .details {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding: 0;
+}
+
+.details span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+}
+
+.details .data {
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin-top: 0.25rem;
+  display: block;
 }
 
 .person {
-  background-color: grey;
-  /* border */
+  background-color: #403d3d;
+  color: white;
+  max-width: 20rem;
 }
-.person div:first-of-type {
-  border-bottom: 1px solid yellow;
+
+.person > div:nth-child(1) {
+  min-height: 15rem;
+  min-width: 1rem;
+  border-radius: 50%;
+  border: solid 3px white;
+  margin: 0rem 2rem;
 }
+.person > div:nth-child(2) {
+  border-bottom: 1px solid #afaf20;
+  border-radius: 0;
+  font-weight: 800;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+/* TODO: move styles to specific component */
